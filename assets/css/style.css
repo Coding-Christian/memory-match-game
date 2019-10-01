@@ -1,1 +1,130 @@
+body {
+  height: 100vh;
+  margin: auto;
+}
 
+body * {
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  height: 10%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+h1 {
+  margin: auto;
+}
+
+.game-content {
+  display: flex;
+  justify-content: space-around;
+  height: 90%;
+  border: 1px solid black;
+}
+
+.game-content > * {
+  align-items: center;
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+.stats-area {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 30%;
+}
+
+h2 {
+  margin: 0;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 10%;
+  border: 1px solid black;
+}
+
+.game-area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.card {
+  position: relative;
+  width: 15%;
+  height: 30%;
+  border: 2px solid black;
+  transition-duration: 0.5s;
+  transform-style: preserve-3d;
+}
+
+.front, .back {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-size: 90%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+}
+
+.back {
+  background-image: url(../images/lfz-card.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.css-logo {
+  background-image: url(../images/css-logo.png);
+}
+
+.html-logo {
+  background-image: url(../images/html-logo.png)
+}
+
+.js-logo {
+  background-image: url(../images/js-logo.png)
+}
+
+.github-logo {
+  background-image: url(../images/gitHub-logo.png)
+}
+
+.docker-logo {
+  background-image: url(../images/docker-logo.jpg)
+}
+
+.mysql-logo {
+  background-image: url(../images/mysql-logo.jpg)
+}
+
+.react-logo {
+  background-image: url(../images/react-logo.png)
+}
+
+.php-logo {
+  background-image: url(../images/php-logo.jpeg)
+}
+
+.node-logo {
+  background-image: url(../images/node-logo.png)
+}
