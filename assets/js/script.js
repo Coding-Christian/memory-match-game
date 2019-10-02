@@ -2,7 +2,7 @@ $(document).ready(initializeApp)
 
 function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick)
-  $(".reset-button").click(resetGame)
+  // $(".reset-button").click(resetGame)
 }
 
 var firstClicked = null;
@@ -33,7 +33,6 @@ function checkMatch(card1, card2) {
   if (firstImage === secondImage) {
     console.log("Cards Match")
     matches += 1;
-    console.log("Matches", matches)
     hideCard(firstClicked, secondClicked)
     firstClicked = null;
     secondClicked = null;
