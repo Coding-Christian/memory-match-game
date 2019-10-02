@@ -33,7 +33,7 @@ body * {
   padding: 1%;
   text-align: center;
   font-size: 3vmin;
-  border: 5px outset rgb(150, 150, 150);
+  border: 3px outset #b177fd;
 }
 
 .reset-button {
@@ -41,7 +41,7 @@ body * {
   height: 20%;
   background-color: rgb(200, 200, 200);
   font-size: 5vmin;
-  border: 2px solid black;
+  border: 3px outset #b177fd;
 }
 
 .reset-button:hover {
@@ -56,7 +56,7 @@ body * {
   height: 10%;
   width: 100%;
   background-color: rgba(200, 200, 200, 0.75);
-  border-bottom: 1px solid black;
+  border-bottom: 3px outset #b177fd;
 }
 
 .game-content {
@@ -75,21 +75,21 @@ body * {
   width: 30%;
 }
 
-h1, h2 {
-  margin: 0;
-}
-
-.stat {
+.stats-area > * {
   width: 90%;
   height: 10%;
-  border: 1px solid black;
+  border: 3px outset #b177fd;
   font-size: 3vmin;
   text-align: center;
   background-color: rgba(200, 200, 200, 0.75);
 }
 
 .stat-head {
-  font-size: 5vmin;
+  font-size: 4.5vmin;
+}
+
+h1, h2 {
+  margin: 0;
 }
 
 .game-area {
