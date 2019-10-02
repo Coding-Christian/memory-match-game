@@ -7,16 +7,20 @@ body * {
   box-sizing: border-box;
 }
 
+.gameover-modal {
+  display: none;
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(200, 200, 200);
+}
+
 .title {
   display: flex;
   justify-content: space-around;
   height: 10%;
   width: 100%;
   border: 1px solid black;
-}
-
-h1 {
-  margin: auto;
 }
 
 .game-content {
@@ -91,6 +95,10 @@ h2 {
 
 .flipped {
   transform: rotateY(180deg);
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .css-logo {

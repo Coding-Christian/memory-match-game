@@ -7,33 +7,50 @@ function initializeApp() {
 var firstClicked = null;
 var secondClicked = null;
 var matches = null;
+var maxMatches = 1;
 
 function handleCardClick(event) {
   var targetCard = $(event.currentTarget);
-  flipCard(targetCard)
   if (!firstClicked) {
     firstClicked = targetCard;
+    flipCard(targetCard)
     return;
   } else {
     secondClicked = targetCard;
   }
-  var firstImage = firstClicked.find(".front").css("background-image")
-  var secondImage = secondClicked.find(".front").css("background-image")
+  if (firstClicked.is(secondClicked)) {
+    secondClicked = null;
+    return;
+  }
+  flipCard(targetCard)
+  checkMatch(firstClicked, secondClicked)
+}
+
+function checkMatch(card1, card2) {
+  var firstImage = card1.find(".front").css("background-image")
+  var secondImage = card2.find(".front").css("background-image")
   if (firstImage === secondImage) {
     console.log("Cards Match")
     matches += 1;
     hideCard(firstClicked, secondClicked)
     firstClicked = null;
     secondClicked = null;
+    checkWin()
   } else {
     $(".game-area").unbind("click")
     console.log("Try Again")
-    setTimeout(function(){
+    setTimeout(function () {
       flipCard(firstClicked, secondClicked)
       firstClicked = null;
       secondClicked = null;
       $(".game-area").on("click", ".card", handleCardClick)
     }, 1500)
+  }
+}
+
+function checkWin() {
+  if (matches === maxMatches) {
+
   }
 }
 
@@ -45,6 +62,6 @@ function flipCard() {
 
 function hideCard() {
   for (var card in arguments) {
-    arguments[card].css("visibility", "hidden")
+    arguments[card].toggleClass("hidden")
   }
 }
