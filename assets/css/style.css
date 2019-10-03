@@ -11,7 +11,7 @@ body {
   background-position: 50% 50%;
   font-family: 'Fedora', Tahoma, Geneva, Verdana, sans-serif;
   color: #d3008c;
-  text-shadow: -0.15rem 0.15rem black;
+  text-shadow: -0.3vmin 0.3vmin black;
 }
 
 body * {
@@ -37,7 +37,7 @@ body * {
 }
 
 .reset-button {
-  width: 40%;
+  width: 50%;
   height: 20%;
   background-color: rgb(200, 200, 200);
   font-size: 5vmin;
@@ -56,7 +56,9 @@ body * {
   height: 10%;
   width: 100%;
   background-color: rgba(200, 200, 200, 0.75);
-  border-bottom: 3px outset #b177fd;
+  border-bottom: 0.3vmin outset #b177fd;
+  font-size: 2.8vmin;
+  text-align: center;
 }
 
 .game-content {
@@ -67,7 +69,7 @@ body * {
 
 .game-content > * {
   align-items: center;
-  padding: 2rem;
+  padding: 2vmin;
 }
 
 .stats-area {
@@ -78,14 +80,14 @@ body * {
 .stats-area > * {
   width: 90%;
   height: 10%;
-  border: 3px outset #b177fd;
+  border: 0.3vmin outset #b177fd;
   font-size: 3vmin;
   text-align: center;
   background-color: rgba(200, 200, 200, 0.75);
 }
 
 .stat-head {
-  font-size: 4.5vmin;
+  font-size: 3.5vmin;
 }
 
 h1, h2 {
@@ -102,8 +104,8 @@ h1, h2 {
   height: 30%;
   transition-duration: 0.5s;
   transform-style: preserve-3d;
-  border: 3px ridge white;
-  border-radius: 1rem;
+  border: 0.4vmin ridge white;
+  border-radius: 1vmin;
 }
 
 .front, .back {
@@ -114,7 +116,7 @@ h1, h2 {
   background-size: cover;
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  border-radius: 1rem;
+  border-radius: 1vmin;
 }
 
 .front {
@@ -139,33 +141,38 @@ h1, h2 {
 }
 
 .jotaro {
-  background-image: url(../images/jotaro.png)
+  background-image: url(../images/jotaro.png);
 }
 
 .kakyoin {
-  background-image: url(../images/kakyoin.jpg)
+  background-image: url(../images/kakyoin.jpg);
 }
 
 .avdol {
-  background-image: url(../images/avdol.png)
+  background-image: url(../images/avdol.png);
+  background-position: 50% 25%;
 }
 
 .polnareff {
-  background-image: url(../images/polnareff.png)
+  background-image: url(../images/polnareff.png);
+  background-position: 75% 30%;
 }
 
 .iggy {
-  background-image: url(../images/iggy.jpg)
+  background-image: url(../images/iggy.jpg);
+  background-position: 15% 40%;
 }
 
 .holly {
-  background-image: url(../images/holly.png)
+  background-image: url(../images/holly.png);
+  background-position: 60% 30%;
 }
 
 .dio {
-  background-image: url(../images/dio.jpg)
+  background-image: url(../images/dio.jpg);
 }
 
 .enyaba {
-  background-image: url(../images/enyaba.png)
+  background-image: url(../images/enyaba.png);
+  background-position: 60% 30%;
 }
