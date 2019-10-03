@@ -1,18 +1,31 @@
+@font-face {
+  font-family: "Fedora";
+  src: url(../fonts/SF\ Fedora.ttf)
+}
+
 body {
   height: 100vh;
   margin: auto;
-  background-image: url(../images/lfz-background.jpg);
+  background-image: url(../images/JJBA-background.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  font-family: 'Fedora', Tahoma, Geneva, Verdana, sans-serif;
+  color: #d3008c;
+  text-shadow: -0.15rem 0.15rem black;
 }
 
 body * {
   box-sizing: border-box;
 }
 
-.gameover-modal {
+.flex-center {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.gameover-modal {
+  flex-direction: column;
   position: absolute;
   height: 70%;
   width: 50%;
@@ -20,18 +33,15 @@ body * {
   padding: 1%;
   text-align: center;
   font-size: 3vmin;
-  border: 5px outset rgb(200, 200, 200);
+  border: 3px outset #b177fd;
 }
 
 .reset-button {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 40%;
   height: 20%;
   background-color: rgb(200, 200, 200);
   font-size: 5vmin;
-  border: 2px solid black;
+  border: 3px outset #b177fd;
 }
 
 .reset-button:hover {
@@ -43,13 +53,10 @@ body * {
 }
 
 .title {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   height: 10%;
   width: 100%;
   background-color: rgba(200, 200, 200, 0.75);
-  border-bottom: 1px solid black;
+  border-bottom: 3px outset #b177fd;
 }
 
 .game-content {
@@ -64,67 +71,59 @@ body * {
 }
 
 .stats-area {
-  display: flex;
-  justify-content: space-around;
   flex-direction: column;
   width: 30%;
 }
 
-h1, h2 {
-  margin: 0;
-}
-
-.stat {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.stats-area > * {
   width: 90%;
   height: 10%;
-  border: 1px solid black;
+  border: 3px outset #b177fd;
   font-size: 3vmin;
   text-align: center;
   background-color: rgba(200, 200, 200, 0.75);
 }
 
 .stat-head {
-  font-size: 5vmin;
+  font-size: 4.5vmin;
+}
+
+h1, h2 {
+  margin: 0;
 }
 
 .game-area {
-  display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   width: 70%;
 }
 
 .card {
-  position: relative;
   width: 15%;
   height: 30%;
   transition-duration: 0.5s;
   transform-style: preserve-3d;
+  border: 3px ridge white;
+  border-radius: 1rem;
 }
 
 .front, .back {
-  display: inline-block;
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  background-size: cover;
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
 }
 
 .front {
-  background-size: 90%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
   background-color: white;
   transform: rotateY(180deg);
 }
 
 .back {
-  background-image: url(../images/lfz-card.jpg);
-  background-size: cover;
-  background-position: 50% 50%;
+  background-image: url(../images/JJBA-logo.jpg);
 }
 
 .flipped {
@@ -135,38 +134,38 @@ h1, h2 {
   visibility: hidden;
 }
 
-.css-logo {
-  background-image: url(../images/css-logo.png);
+.joseph {
+  background-image: url(../images/joseph.png);
 }
 
-.html-logo {
-  background-image: url(../images/html-logo.png)
+.jotaro {
+  background-image: url(../images/jotaro.png)
 }
 
-.js-logo {
-  background-image: url(../images/js-logo.png)
+.kakyoin {
+  background-image: url(../images/kakyoin.jpg)
 }
 
-.github-logo {
-  background-image: url(../images/gitHub-logo.png)
+.avdol {
+  background-image: url(../images/avdol.png)
 }
 
-.docker-logo {
-  background-image: url(../images/docker-logo.jpg)
+.polnareff {
+  background-image: url(../images/polnareff.png)
 }
 
-.mysql-logo {
-  background-image: url(../images/mysql-logo.jpg)
+.iggy {
+  background-image: url(../images/iggy.jpg)
 }
 
-.react-logo {
-  background-image: url(../images/react-logo.png)
+.holly {
+  background-image: url(../images/holly.png)
 }
 
-.php-logo {
-  background-image: url(../images/php-logo.jpeg)
+.dio {
+  background-image: url(../images/dio.jpg)
 }
 
-.node-logo {
-  background-image: url(../images/node-logo.png)
+.enyaba {
+  background-image: url(../images/enyaba.png)
 }
