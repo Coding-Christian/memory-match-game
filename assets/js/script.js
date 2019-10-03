@@ -4,31 +4,35 @@ function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick);
   $(".reset-button").click(resetGame);
   updateStats();
+  randomizeCards();
 }
 
-var firstClicked = null;
-var secondClicked = null;
-var matches = 0;
-var maxMatches = 9;
-var attempts = 0;
-var gamesPlayed = 0;
+var game = {
+  "firstClicked": null,
+  "secondClicked": null,
+  "matches": 0,
+  "maxMatches": 9,
+  "attempts": 0,
+  "gamesPlayed": 0,
+  "cardArray": ["joseph", "jotaro", "kakyoin", "avdol", "polnareff", "iggy", "holly", "dio", "enyaba"],
+}
 
 function handleCardClick(event) {
   var targetCard = $(event.currentTarget);
-  if (!firstClicked) {
-    firstClicked = targetCard;
+  if (!game.firstClicked) {
+    game.firstClicked = targetCard;
     flipCard(targetCard);
     return;
   } else {
-    secondClicked = targetCard;
+    game.secondClicked = targetCard;
   }
-  if (firstClicked.is(secondClicked)) {
-    secondClicked = null;
+  if (game.firstClicked.is(game.secondClicked)) {
+    game.secondClicked = null;
     return;
   }
   flipCard(targetCard);
-  attempts++;
-  checkMatch(firstClicked, secondClicked);
+  game.attempts++;
+  checkMatch(game.firstClicked, game.secondClicked);
   updateStats();
 }
 
@@ -44,10 +48,10 @@ function checkMatch(card1, card2) {
 
 function successMatch() {
   console.log("Cards Match");
-  matches++;
-  hideCard(firstClicked, secondClicked);
-  firstClicked = null;
-  secondClicked = null;
+  game.matches++;
+  hideCard(game.firstClicked, game.secondClicked);
+  game.firstClicked = null;
+  game.secondClicked = null;
   checkWin();
 }
 
@@ -55,27 +59,27 @@ function failMatch() {
   $(".game-area").unbind("click");
   console.log("Try Again");
   setTimeout(function () {
-    flipCard(firstClicked, secondClicked);
-    firstClicked = null;
-    secondClicked = null;
+    flipCard(game.firstClicked, game.secondClicked);
+    game.firstClicked = null;
+    game.secondClicked = null;
     $(".game-area").on("click", ".card", handleCardClick);
-  }, 1500);
+  }, 1000);
 }
 
 function checkWin() {
-  if (matches === maxMatches) {
+  if (game.matches === game.maxMatches) {
     console.log("You Win");
     setTimeout(function () {
       $(".gameover-modal").removeClass("hidden");
     }, 1000);
-    gamesPlayed++;
+    game.gamesPlayed++;
   }
 }
 
 function updateStats() {
-  $("#gamesPlayed").text(gamesPlayed);
-  $("#matchAttempts").text(attempts);
-  var accuracy = (matches / attempts * 100).toFixed(2);
+  $("#gamesPlayed").text(game.gamesPlayed);
+  $("#matchAttempts").text(game.attempts);
+  var accuracy = (game.matches / game.attempts * 100).toFixed(2);
   if (accuracy === "NaN") {
     $("#accuracy").text("0.00%");
   } else {
@@ -86,9 +90,29 @@ function updateStats() {
 function resetGame() {
   $(".card").removeClass("flipped").removeClass("hidden");
   $(".gameover-modal").addClass("hidden");
-  matches = 0;
-  attempts = 0;
+  game.matches = 0;
+  game.attempts = 0;
   updateStats();
+  randomizeCards();
+}
+
+function randomizeCards() {
+  var randOrder = game.cardArray.concat(game.cardArray);
+  for (var cardIndex = randOrder.length - 1; cardIndex > 0; cardIndex--) {
+    var swapIndex = Math.floor(Math.random() * (cardIndex));
+    [randOrder[cardIndex], randOrder[swapIndex]] = [randOrder[swapIndex], randOrder[cardIndex]];
+  }
+  dealCards(randOrder);
+}
+
+function dealCards(deck) {
+  $(".card").remove();
+  for (var card in deck) {
+    var newCard = $("<div>").addClass("card");
+    newCard.append($("<div>").addClass("front " + deck[card]));
+    newCard.append($("<div>").addClass("back"));
+    $(".game-area").append(newCard);
+  }
 }
 
 function whichCard(element) {
