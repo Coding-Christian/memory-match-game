@@ -104,6 +104,7 @@ h1, h2 {
   height: 30%;
   transition-duration: 0.5s;
   transform-style: preserve-3d;
+  background-color: white;
   border: 0.4vmin ridge white;
   border-radius: 1vmin;
 }
@@ -120,7 +121,6 @@ h1, h2 {
 }
 
 .front {
-  background-color: white;
   transform: rotateY(180deg);
 }
 
