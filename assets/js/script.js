@@ -2,7 +2,7 @@ $(document).ready(initializeApp);
 
 function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick);
-  // $(".reset-button").click(resetGame);
+  $(".reset-button").click(resetGame);
   updateStats();
 }
 
@@ -33,32 +33,42 @@ function handleCardClick(event) {
 }
 
 function checkMatch(card1, card2) {
-  var firstImage = card1.find(".front").css("background-image");
-  var secondImage = card2.find(".front").css("background-image");
+  var firstImage = whichCard(card1);
+  var secondImage = whichCard(card2);
   if (firstImage === secondImage) {
-    console.log("Cards Match");
-    matches++;
-    hideCard(firstClicked, secondClicked);
+    successMatch()
+  } else {
+    failMatch()
+  }
+}
+
+function successMatch() {
+  console.log("Cards Match");
+  matches++;
+  hideCard(firstClicked, secondClicked);
+  firstClicked = null;
+  secondClicked = null;
+  checkWin();
+}
+
+function failMatch() {
+  $(".game-area").unbind("click");
+  console.log("Try Again");
+  setTimeout(function () {
+    flipCard(firstClicked, secondClicked);
     firstClicked = null;
     secondClicked = null;
-    checkWin();
-  } else {
-    $(".game-area").unbind("click");
-    console.log("Try Again");
-    setTimeout(function () {
-      flipCard(firstClicked, secondClicked);
-      firstClicked = null;
-      secondClicked = null;
-      $(".game-area").on("click", ".card", handleCardClick);
-    }, 1500);
-  }
+    $(".game-area").on("click", ".card", handleCardClick);
+  }, 1500);
 }
 
 function checkWin() {
   if (matches === maxMatches) {
     console.log("You Win");
-    setTimeout(function () { $(".gameover-modal").removeClass("hidden");}, 1000)
-    gamesPlayed++
+    setTimeout(function () {
+      $(".gameover-modal").removeClass("hidden");
+    }, 1000);
+    gamesPlayed++;
   }
 }
 
@@ -71,6 +81,18 @@ function updateStats() {
   } else {
     $("#accuracy").text(accuracy + "%");
   }
+}
+
+function resetGame() {
+  $(".card").removeClass("flipped").removeClass("hidden");
+  $(".gameover-modal").addClass("hidden");
+  matches = 0;
+  attempts = 0;
+  updateStats();
+}
+
+function whichCard(element) {
+  return element.find(".front").css("background-image");
 }
 
 function flipCard() {
