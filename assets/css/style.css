@@ -106,7 +106,7 @@ h1, h2 {
   height: 30%;
   top: 0%;
   left: 0%;
-  transition-duration: 0.5s;
+  transition: all 0.5s;
   transform-style: preserve-3d;
   background-color: white;
   border: 0.4vmin ridge white;
@@ -130,10 +130,6 @@ h1, h2 {
 
 .back {
   background-image: url(../images/JJBA-logo.jpg);
-}
-
-.flipped {
-  transform: rotateY(180deg);
 }
 
 .hidden {
