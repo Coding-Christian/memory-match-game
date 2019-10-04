@@ -95,13 +95,17 @@ h1, h2 {
 }
 
 .game-area {
+  position: relative;
   flex-wrap: wrap;
   width: 70%;
 }
 
 .card {
+  position: absolute;
   width: 15%;
   height: 30%;
+  top: 0%;
+  left: 0%;
   transition-duration: 0.5s;
   transform-style: preserve-3d;
   background-color: white;

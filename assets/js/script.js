@@ -102,18 +102,27 @@ function randomizeCards() {
     var swapIndex = Math.floor(Math.random() * (cardIndex));
     [randOrder[cardIndex], randOrder[swapIndex]] = [randOrder[swapIndex], randOrder[cardIndex]];
   }
-  dealCards(randOrder);
+  assembleDeck(randOrder);
 }
 
-function dealCards(deck) {
+function assembleDeck(deck) {
   $(".card").remove();
   for (var card in deck) {
     var newCard = $("<div>").addClass("card");
     newCard.append($("<div>").addClass("front " + deck[card]));
     newCard.append($("<div>").addClass("back"));
     $(".game-area").append(newCard);
+    dealCards(deck);
   }
 }
+
+// function dealCards(deck) {
+//   for (var card in deck) {
+//     var row = Math.floor((card + 1) / 6.5);
+//     var col = (card + 1 - 6 * row) % 6.5;
+
+//   }
+// }
 
 function whichCard(element) {
   return element.find(".front").css("background-image");
