@@ -1,16 +1,8 @@
-$(document).ready(function() {
-  $(".deal").get(0).oncanplaythrough = function() {
-    initializeApp();
-  };
-});
+$(document).ready(function(){$(".deal").on("canplay", initializeApp);});
 
 function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick);
-  $(".reset-button").click(function() {
-    $(".deal").get(0).oncanplaythrough = function() {
-      resetGame();
-    };
-  });
+  $(".reset-button").click(resetGame);
   updateStats();
   randomizeCards();
 }
@@ -144,9 +136,7 @@ function assembleDeck(deck) {
 }
 
 function dealCards(deck) {
-  $(".deal")
-    .get(0)
-    .play();
+  $(".deal").get(0).play();
   for (var card = 1; card <= deck.length; card++) {
     var row = Math.floor(card / 6.5);
     var col = (card - 6 * row) % 6.5;
