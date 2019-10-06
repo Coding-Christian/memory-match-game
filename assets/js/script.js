@@ -1,10 +1,9 @@
-$(document).ready(function(){$(".deal").on("canplay", initializeApp);});
+$(document).ready(initializeApp);
 
 function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick);
+  $(".start-button").click(startGame);
   $(".reset-button").click(resetGame);
-  updateStats();
-  randomizeCards();
 }
 
 var game = {
@@ -61,7 +60,6 @@ function checkMatch(card1, card2) {
 }
 
 function successMatch() {
-  console.log("Cards Match");
   game.matches++;
   hideCard(game.firstClicked, game.secondClicked);
   game.firstClicked = null;
@@ -71,7 +69,6 @@ function successMatch() {
 
 function failMatch() {
   $(".game-area").unbind("click");
-  console.log("Try Again");
   setTimeout(function() {
     flipCard(game.firstClicked, game.secondClicked);
     game.firstClicked = null;
@@ -82,7 +79,6 @@ function failMatch() {
 
 function checkWin() {
   if (game.matches === game.maxMatches) {
-    console.log("You Win");
     setTimeout(function() {
       $(".gameover-modal").removeClass("hidden");
     }, 1000);
@@ -99,6 +95,16 @@ function updateStats() {
   } else {
     $("#accuracy").text(accuracy + "%");
   }
+}
+
+function startGame() {
+  $(".start-button").css("display", "none");
+  var dealSound = new Audio();
+  dealSound.src = "assets/audio/deal-cards.wav";
+  dealSound.addEventListener("canplaythrough", function(){dealSound.play()});
+  dealSound.load();
+  updateStats();
+  randomizeCards();
 }
 
 function resetGame() {
@@ -136,7 +142,6 @@ function assembleDeck(deck) {
 }
 
 function dealCards(deck) {
-  $(".deal").get(0).play();
   for (var card = 1; card <= deck.length; card++) {
     var row = Math.floor(card / 6.5);
     var col = (card - 6 * row) % 6.5;

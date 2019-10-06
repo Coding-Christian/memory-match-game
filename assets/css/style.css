@@ -36,6 +36,25 @@ body * {
   border: 3px outset #b177fd;
 }
 
+.start-button {
+  position: absolute;
+  width: 30%;
+  height: 20%;
+  left: 50%;
+  top: 40%;
+  background-color: rgb(200, 200, 200);
+  font-size: 5vmin;
+  border: 3px outset #b177fd;
+}
+
+.start-button:hover {
+  cursor: pointer;
+}
+
+.start-button:active {
+  filter: brightness(75%);
+}
+
 .reset-button {
   width: 50%;
   height: 20%;
@@ -112,6 +131,9 @@ h2 {
   background-color: white;
   border: 0.4vmin ridge white;
   border-radius: 1vmin;
+}
+.card:hover {
+  cursor: pointer;
 }
 
 .front,
