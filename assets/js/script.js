@@ -2,20 +2,33 @@ $(document).ready(initializeApp);
 
 function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick);
+  $(".start-button").click(startGame);
   $(".reset-button").click(resetGame);
-  updateStats();
-  randomizeCards();
 }
 
 var game = {
-  "firstClicked": null,
-  "secondClicked": null,
-  "matches": 0,
-  "maxMatches": 9,
-  "attempts": 0,
-  "gamesPlayed": 0,
-  "cardArray": ["joseph", "jotaro", "kakyoin", "avdol", "polnareff", "iggy", "holly", "dio", "enyaba"],
-}
+  firstClicked: null,
+  secondClicked: null,
+  matches: 0,
+  maxMatches: 9,
+  attempts: 0,
+  gamesPlayed: 0,
+  cardArray: [
+    "joseph",
+    "jotaro",
+    "kakyoin",
+    "avdol",
+    "polnareff",
+    "iggy",
+    "holly",
+    "dio",
+    "enyaba",
+  ],
+};
+
+var gameSounds = {
+  flip: new Audio("assets/audio/card-flip.wav"),
+};
 
 function handleCardClick(event) {
   var targetCard = $(event.currentTarget);
@@ -40,14 +53,13 @@ function checkMatch(card1, card2) {
   var firstImage = whichCard(card1);
   var secondImage = whichCard(card2);
   if (firstImage === secondImage) {
-    successMatch()
+    successMatch();
   } else {
-    failMatch()
+    failMatch();
   }
 }
 
 function successMatch() {
-  console.log("Cards Match");
   game.matches++;
   hideCard(game.firstClicked, game.secondClicked);
   game.firstClicked = null;
@@ -57,8 +69,7 @@ function successMatch() {
 
 function failMatch() {
   $(".game-area").unbind("click");
-  console.log("Try Again");
-  setTimeout(function () {
+  setTimeout(function() {
     flipCard(game.firstClicked, game.secondClicked);
     game.firstClicked = null;
     game.secondClicked = null;
@@ -68,8 +79,7 @@ function failMatch() {
 
 function checkWin() {
   if (game.matches === game.maxMatches) {
-    console.log("You Win");
-    setTimeout(function () {
+    setTimeout(function() {
       $(".gameover-modal").removeClass("hidden");
     }, 1000);
     game.gamesPlayed++;
@@ -79,7 +89,7 @@ function checkWin() {
 function updateStats() {
   $("#gamesPlayed").text(game.gamesPlayed);
   $("#matchAttempts").text(game.attempts);
-  var accuracy = (game.matches / game.attempts * 100).toFixed(2);
+  var accuracy = ((game.matches / game.attempts) * 100).toFixed(2);
   if (accuracy === "NaN") {
     $("#accuracy").text("0.00%");
   } else {
@@ -87,8 +97,20 @@ function updateStats() {
   }
 }
 
+function startGame() {
+  $(".start-button").css("display", "none");
+  var dealSound = new Audio();
+  dealSound.src = "assets/audio/deal-cards.wav";
+  dealSound.addEventListener("canplaythrough", function(){dealSound.play()});
+  dealSound.load();
+  updateStats();
+  randomizeCards();
+}
+
 function resetGame() {
-  $(".card").removeClass("flipped").removeClass("hidden");
+  $(".card")
+    .removeClass("flipped")
+    .removeClass("hidden");
   $(".gameover-modal").addClass("hidden");
   game.matches = 0;
   game.attempts = 0;
@@ -99,8 +121,11 @@ function resetGame() {
 function randomizeCards() {
   var randOrder = game.cardArray.concat(game.cardArray);
   for (var cardIndex = randOrder.length - 1; cardIndex > 0; cardIndex--) {
-    var swapIndex = Math.floor(Math.random() * (cardIndex));
-    [randOrder[cardIndex], randOrder[swapIndex]] = [randOrder[swapIndex], randOrder[cardIndex]];
+    var swapIndex = Math.floor(Math.random() * cardIndex);
+    [randOrder[cardIndex], randOrder[swapIndex]] = [
+      randOrder[swapIndex],
+      randOrder[cardIndex],
+    ];
   }
   assembleDeck(randOrder);
 }
@@ -124,12 +149,12 @@ function dealCards(deck) {
     var Y = (0.33 * row + 0.025) * parseFloat($(".game-area").css("height"));
     var nthCard = $(".game-area .card:nth-child(" + (card + 1) + ")");
     nthCard.css({
-      "transform": "translate(" + X + "px," + Y + "px)",
+      transform: "translate(" + X + "px," + Y + "px)",
       "transition-delay": 0.1 * card + "s",
     });
     updateCSS(nthCard);
   }
-  setTimeout(function () {
+  setTimeout(function() {
     $(".card").css("transition-delay", "");
   }, 100 * (deck.length + 1));
 }
@@ -138,12 +163,13 @@ function updateCSS(card) {
   var cardTransform = card.prop("style")["cssText"].split(" ");
   if (card.hasClass("flipped")) {
     card.css({
-      "transform": cardTransform[1] + cardTransform[2].slice(0, -1) + " rotateY(180deg)",
+      transform:
+        cardTransform[1] + cardTransform[2].slice(0, -1) + " rotateY(180deg)",
     });
   } else {
-  card.css({
-    "transform": cardTransform[1] + cardTransform[2].slice(0, -1),
-  });
+    card.css({
+      transform: cardTransform[1] + cardTransform[2].slice(0, -1),
+    });
   }
 }
 
@@ -153,6 +179,7 @@ function whichCard(element) {
 
 function flipCard() {
   for (var card in arguments) {
+    gameSounds.flip.play();
     arguments[card].toggleClass("flipped");
     updateCSS(arguments[card]);
   }
