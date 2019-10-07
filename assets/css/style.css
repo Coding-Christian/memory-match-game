@@ -18,6 +18,27 @@ body * {
   box-sizing: border-box;
 }
 
+.readability-button {
+  display: inline-block;
+  position: absolute;
+  width: 120px;
+  height: 20px;
+  top: 1vmin;
+  left: 1vmin;
+  background-image: url(../images/readability-off.png);
+  background-size: contain;
+  filter: opacity(50%);
+}
+
+.readability-button:hover {
+  cursor: pointer;
+}
+
+.easy-read {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: -0.1vmin 0.1vmin black;
+}
+
 hr {
   height: 0.1vmin;
   width: 95%;
