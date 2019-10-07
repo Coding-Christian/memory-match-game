@@ -98,7 +98,7 @@ function updateStats() {
 }
 
 function startGame() {
-  $(".start-button").css("display", "none");
+  $(".start-modal").addClass("hidden");
   var dealSound = new Audio();
   dealSound.src = "assets/audio/deal-cards.wav";
   dealSound.addEventListener("canplaythrough", function(){dealSound.play()});
@@ -114,6 +114,12 @@ function resetGame() {
   $(".gameover-modal").addClass("hidden");
   game.matches = 0;
   game.attempts = 0;
+  var dealSound = new Audio();
+  dealSound.src = "assets/audio/deal-cards.wav";
+  dealSound.addEventListener("canplaythrough", function() {
+    dealSound.play();
+  });
+  dealSound.load();
   updateStats();
   randomizeCards();
 }

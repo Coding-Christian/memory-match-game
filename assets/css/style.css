@@ -18,64 +18,71 @@ body * {
   box-sizing: border-box;
 }
 
+hr {
+  height: 0.1vmin;
+  width: 95%;
+    border: 1px solid #b177fd;
+}
+
 .flex-center {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.gameover-modal {
+.start-modal, .gameover-modal {
   flex-direction: column;
   position: absolute;
-  height: 70%;
-  width: 50%;
+  height: 80%;
+  width: 70%;
   background-color: rgb(200, 200, 200);
+  background-size: contain;
+  background-position: 100% 40%;
+  background-repeat: no-repeat;
   padding: 1%;
   text-align: center;
   font-size: 3vmin;
-  border: 3px outset #b177fd;
+  border: 0.3vmin outset #b177fd;
+  border-radius: 2vmin;
 }
 
-.start-button {
-  position: absolute;
-  width: 30%;
-  height: 20%;
-  left: 50%;
-  top: 40%;
-  background-color: rgb(200, 200, 200);
-  font-size: 5vmin;
-  border: 3px outset #b177fd;
+.start-modal {
+  background-image: url(../images/darby.png);
 }
 
-.start-button:hover {
-  cursor: pointer;
+.gameover-modal {
+ background-image: url(../images/yare-yare.png);
 }
 
-.start-button:active {
-  filter: brightness(75%);
-}
-
-.reset-button {
+.rules, .congratulations {
+  display: inline-block;
+  position: relative;
   width: 50%;
-  height: 20%;
-  background-color: rgb(200, 200, 200);
-  font-size: 5vmin;
-  border: 3px outset #b177fd;
+  left: -20%;
+  text-align: left;
 }
 
-.reset-button:hover {
+.start-button, .reset-button {
+  width: 50%;
+  height: 12%;
+  background-image: linear-gradient(rgba(220, 220, 220), rgba(150, 150, 150));
+  font-size: 5vmin;
+  border: 0.3vmin outset #b177fd;
+  border-radius: 1vmin;
+}
+
+.start-button:hover, .reset-button:hover {
   cursor: pointer;
 }
 
-.reset-button:active {
-  filter: brightness(75%);
+.start-button:active, .reset-button:active {
+  background-image: linear-gradient(rgba(150, 150, 150), rgba(220, 220, 220));
 }
 
 .title {
   height: 10%;
   width: 100%;
-  background-color: rgba(200, 200, 200, 0.75);
-  border-bottom: 0.3vmin outset #b177fd;
+  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   font-size: 2.8vmin;
   text-align: center;
 }
@@ -94,15 +101,17 @@ body * {
 .stats-area {
   flex-direction: column;
   width: 30%;
+  border: 0.3vmin outset #b177fd;
+  margin: 1%;
+  padding: 2%;
+  background-image: linear-gradient(rgba(230, 230, 230, 0.90), rgba(180, 180, 180, 0.90));
 }
 
-.stats-area > * {
+.stat {
   width: 90%;
   height: 10%;
-  border: 0.3vmin outset #b177fd;
   font-size: 3vmin;
   text-align: center;
-  background-color: rgba(200, 200, 200, 0.75);
 }
 
 .stat-head {
@@ -134,6 +143,8 @@ h2 {
 }
 .card:hover {
   cursor: pointer;
+  width: 13.5%;
+  height: 27%;
 }
 
 .front,

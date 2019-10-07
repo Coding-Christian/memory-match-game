@@ -16,22 +16,31 @@
     <div class="game-content">
       <aside class="stats-area flex-center">
         <h2 class="stat-head flex-center">Session Statstics</h2>
-        <h3 class="flex-center">Games Played:</h3>
-        <div id="gamesPlayed" class="flex-center"></div>
-        <h3 class="flex-center">Match Attempts:</h3>
-        <div id="matchAttempts" class="flex-center"></div>
-        <h3 class="flex-center">Accuracy:</h3>
-        <div id="accuracy" class="flex-center"></div>
+        <hr>
+        <h3 class="stat flex-center">Games Played:</h3>
+        <div id="gamesPlayed" class="stat flex-center"></div>
+        <hr>
+        <h3 class="stat flex-center">Match Attempts:</h3>
+        <div id="matchAttempts" class="stat flex-center"></div>
+        <hr>
+        <h3 class="stat flex-center">Accuracy:</h3>
+        <div id="accuracy" class="stat flex-center"></div>
       </aside>
       <main class="game-area flex-center">
         <div class="gameover-modal hidden flex-center">
-          <h1>
-            You Win! The Joestar bloodline lives on thanks to your efforts!
+          <h1 class="congratulations">
+            Yare yare daze. The Joestar bloodline lives on thanks to your efforts!
           </h1>
           <div class="reset-button flex-center">Play Again</div>
         </div>
       </main>
-      <div class="start-button flex-center">Play</div>
+      <div class="start-modal flex-center">
+        <h2 class="rules">Help the Stardust Crusaders join forces to defeat DIO.
+          Match two of the same character to clear those cards.
+          Match all cards to win. Who's soul will you wager next, JoJo?
+        </h2>
+        <div class="start-button flex-center">Play</div>
+      </div>
     </div>
   </body>
 </html>
