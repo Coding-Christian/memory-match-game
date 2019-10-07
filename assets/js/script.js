@@ -14,20 +14,16 @@ var game = {
   attempts: 0,
   gamesPlayed: 0,
   cardArray: [
-    "joseph",
-    "jotaro",
-    "kakyoin",
-    "avdol",
-    "polnareff",
-    "iggy",
-    "holly",
-    "dio",
-    "enyaba",
+    "Joseph",
+    "Jotaro",
+    "Kakyoin",
+    "Avdol",
+    "Polnareff",
+    "Iggy",
+    "Holly",
+    "Dio",
+    "Enyaba",
   ],
-};
-
-var gameSounds = {
-  flip: new Audio("assets/audio/card-flip.wav"),
 };
 
 function handleCardClick(event) {
@@ -80,6 +76,8 @@ function failMatch() {
 function checkWin() {
   if (game.matches === game.maxMatches) {
     setTimeout(function() {
+      var winSound = new Audio();
+      playSound(winSound, "assets/audio/yare-yare.wav");
       $(".gameover-modal").removeClass("hidden");
     }, 1000);
     game.gamesPlayed++;
@@ -99,12 +97,10 @@ function updateStats() {
 
 function startGame() {
   $(".start-modal").addClass("hidden");
-  var dealSound = new Audio();
-  dealSound.src = "assets/audio/deal-cards.wav";
-  dealSound.addEventListener("canplaythrough", function(){dealSound.play()});
-  dealSound.load();
   updateStats();
   randomizeCards();
+  var wager = new Audio();
+  playSound(wager, "assets/audio/wager.wav");
 }
 
 function resetGame() {
@@ -114,12 +110,6 @@ function resetGame() {
   $(".gameover-modal").addClass("hidden");
   game.matches = 0;
   game.attempts = 0;
-  var dealSound = new Audio();
-  dealSound.src = "assets/audio/deal-cards.wav";
-  dealSound.addEventListener("canplaythrough", function() {
-    dealSound.play();
-  });
-  dealSound.load();
   updateStats();
   randomizeCards();
 }
@@ -139,11 +129,17 @@ function randomizeCards() {
 function assembleDeck(deck) {
   $(".card").remove();
   for (var card in deck) {
-    var newCard = $("<div>").addClass("card");
-    newCard.append($("<div>").addClass("front " + deck[card]));
+    var newCard = $("<div>").addClass("card active-card");
+    newCard.append(
+      $("<div>")
+        .addClass("front " + deck[card])
+        .attr("title", deck[card])
+    );
     newCard.append($("<div>").addClass("back"));
     $(".game-area").append(newCard);
   }
+  var dealSound = new Audio();
+  playSound(dealSound, "assets/audio/deal-cards.wav");
   dealCards(deck);
 }
 
@@ -185,8 +181,10 @@ function whichCard(element) {
 
 function flipCard() {
   for (var card in arguments) {
-    gameSounds.flip.play();
+    var flipSound = new Audio();
+    playSound(flipSound, "assets/audio/card-flip.wav");
     arguments[card].toggleClass("flipped");
+    arguments[card].toggleClass("active-card");
     updateCSS(arguments[card]);
   }
 }
@@ -195,4 +193,12 @@ function hideCard() {
   for (var card in arguments) {
     arguments[card].toggleClass("hidden");
   }
+}
+
+function playSound(sound, source) {
+  sound.src = source;
+  sound.addEventListener("canplaythrough", function() {
+    sound.play();
+  });
+  sound.load();
 }

@@ -141,7 +141,8 @@ h2 {
   border: 0.4vmin ridge white;
   border-radius: 1vmin;
 }
-.card:hover {
+
+.active-card:hover {
   cursor: pointer;
   width: 13.5%;
   height: 27%;
@@ -171,43 +172,43 @@ h2 {
   visibility: hidden;
 }
 
-.joseph {
+.Joseph {
   background-image: url(../images/joseph.png);
 }
 
-.jotaro {
+.Jotaro {
   background-image: url(../images/jotaro.png);
 }
 
-.kakyoin {
+.Kakyoin {
   background-image: url(../images/kakyoin.jpg);
 }
 
-.avdol {
+.Avdol {
   background-image: url(../images/avdol.png);
   background-position: 50% 25%;
 }
 
-.polnareff {
+.Polnareff {
   background-image: url(../images/polnareff.png);
   background-position: 75% 30%;
 }
 
-.iggy {
+.Iggy {
   background-image: url(../images/iggy.jpg);
   background-position: 15% 40%;
 }
 
-.holly {
+.Holly {
   background-image: url(../images/holly.png);
   background-position: 60% 30%;
 }
 
-.dio {
+.Dio {
   background-image: url(../images/dio.jpg);
 }
 
-.enyaba {
+.Enyaba {
   background-image: url(../images/enyaba.png);
   background-position: 60% 30%;
 }
