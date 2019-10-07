@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Fedora";
-  src: url(../fonts/SF\ Fedora.ttf)
+  src: url(../fonts/sf-fedora.ttf);
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   background-image: url(../images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
-  font-family: 'Fedora', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
   color: #d3008c;
   text-shadow: -0.3vmin 0.3vmin black;
 }
@@ -18,45 +18,71 @@ body * {
   box-sizing: border-box;
 }
 
+hr {
+  height: 0.1vmin;
+  width: 95%;
+    border: 1px solid #b177fd;
+}
+
 .flex-center {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.gameover-modal {
+.start-modal, .gameover-modal {
   flex-direction: column;
   position: absolute;
-  height: 70%;
-  width: 50%;
+  height: 80%;
+  width: 70%;
   background-color: rgb(200, 200, 200);
+  background-size: contain;
+  background-position: 100% 40%;
+  background-repeat: no-repeat;
   padding: 1%;
   text-align: center;
   font-size: 3vmin;
-  border: 3px outset #b177fd;
+  border: 0.3vmin outset #b177fd;
+  border-radius: 2vmin;
 }
 
-.reset-button {
+.start-modal {
+  background-image: url(../images/darby.png);
+}
+
+.gameover-modal {
+ background-image: url(../images/yare-yare.png);
+}
+
+.rules, .congratulations {
+  display: inline-block;
+  position: relative;
   width: 50%;
-  height: 20%;
-  background-color: rgb(200, 200, 200);
-  font-size: 5vmin;
-  border: 3px outset #b177fd;
+  left: -20%;
+  text-align: left;
 }
 
-.reset-button:hover {
+.start-button, .reset-button {
+  width: 50%;
+  height: 12%;
+  background-image: linear-gradient(rgba(220, 220, 220), rgba(150, 150, 150));
+  font-size: 5vmin;
+  border: 0.3vmin outset #b177fd;
+  border-radius: 1vmin;
+}
+
+.start-button:hover, .reset-button:hover {
   cursor: pointer;
 }
 
-.reset-button:active {
-  filter: brightness(75%)
+.start-button:active, .reset-button:active {
+  background-image: linear-gradient(rgba(150, 150, 150), rgba(220, 220, 220));
 }
 
 .title {
   height: 10%;
   width: 100%;
-  background-color: rgba(200, 200, 200, 0.75);
-  border-bottom: 0.3vmin outset #b177fd;
+  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   font-size: 2.8vmin;
   text-align: center;
 }
@@ -75,22 +101,25 @@ body * {
 .stats-area {
   flex-direction: column;
   width: 30%;
+  border: 0.3vmin outset #b177fd;
+  margin: 1%;
+  padding: 2%;
+  background-image: linear-gradient(rgba(230, 230, 230, 0.90), rgba(180, 180, 180, 0.90));
 }
 
-.stats-area > * {
+.stat {
   width: 90%;
   height: 10%;
-  border: 0.3vmin outset #b177fd;
   font-size: 3vmin;
   text-align: center;
-  background-color: rgba(200, 200, 200, 0.75);
 }
 
 .stat-head {
   font-size: 3.5vmin;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0;
 }
 
@@ -113,7 +142,14 @@ h1, h2 {
   border-radius: 1vmin;
 }
 
-.front, .back {
+.active-card:hover {
+  cursor: pointer;
+  width: 13.5%;
+  height: 27%;
+}
+
+.front,
+.back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -136,43 +172,43 @@ h1, h2 {
   visibility: hidden;
 }
 
-.joseph {
+.Joseph {
   background-image: url(../images/joseph.png);
 }
 
-.jotaro {
+.Jotaro {
   background-image: url(../images/jotaro.png);
 }
 
-.kakyoin {
+.Kakyoin {
   background-image: url(../images/kakyoin.jpg);
 }
 
-.avdol {
+.Avdol {
   background-image: url(../images/avdol.png);
   background-position: 50% 25%;
 }
 
-.polnareff {
+.Polnareff {
   background-image: url(../images/polnareff.png);
   background-position: 75% 30%;
 }
 
-.iggy {
+.Iggy {
   background-image: url(../images/iggy.jpg);
   background-position: 15% 40%;
 }
 
-.holly {
+.Holly {
   background-image: url(../images/holly.png);
   background-position: 60% 30%;
 }
 
-.dio {
+.Dio {
   background-image: url(../images/dio.jpg);
 }
 
-.enyaba {
+.Enyaba {
   background-image: url(../images/enyaba.png);
   background-position: 60% 30%;
 }
