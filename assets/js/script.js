@@ -4,6 +4,7 @@ function initializeApp() {
   $(".game-area").on("click", ".card", handleCardClick);
   $(".start-button").click(startGame);
   $(".reset-button").click(resetGame);
+  $(".readability-button").click(toggleReadability);
 }
 
 var game = {
@@ -201,4 +202,18 @@ function playSound(sound, source) {
     sound.play();
   });
   sound.load();
+}
+
+function toggleReadability() {
+  if ($("body").hasClass("easy-read")) {
+    $("body").removeClass("easy-read");
+    $(".readability-button")
+    .css("background-image",
+    "url('assets/images/readability-off.png')");
+  } else {
+    $("body").addClass("easy-read");
+    $(".readability-button").css(
+      "background-image",
+      "url('assets/images/readability-on.png')");
+  }
 }
