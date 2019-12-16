@@ -14,7 +14,7 @@ Try out the game at: https://memory.christian-haney.com
 - Players can flip over cards by clicking them with the mouse
 - Players can make matches by flipping over a set of two identical cards
 - Players can win the game by finding all pairs of matching cards
--Players can start a new game after winning the current game by pressing "Play Again"
+- Players can start a new game after winning the current game by pressing "Play Again"
 - Players can view the number of games played during the current session
 - Players can view the number of match attempts made during the current game
 - Players can view their accuracy as a percentage of attempted matches that were correct
