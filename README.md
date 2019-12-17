@@ -20,6 +20,13 @@ Try out the game at: https://memory.christian-haney.com
 - Players can view their accuracy as a percentage of attempted matches that were correct
 - Players can change the font of the game between a custom font and the default sans-serif font of their browser
 
+## Previews
+#### Starting a Game
+![Starting a Game](features/starting-a-game.gif)
+
+#### Ending a Game
+![Ending a Game](features/ending-a-game.gif)
+
 ## Installation
 #### System Requirements
 - None
