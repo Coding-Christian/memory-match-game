@@ -5,6 +5,7 @@ function initializeApp() {
   $(".start-button").click(startGame);
   $(".reset-button").click(resetGame);
   $(".readability-button").click(toggleReadability);
+  $('.mute-button').click(toggleAudio);
 }
 
 var game = {
@@ -205,13 +206,27 @@ function playSound(source) {
 function toggleReadability() {
   if ($("body").hasClass("easy-read")) {
     $("body").removeClass("easy-read");
-    $(".readability-button")
-    .css("background-image",
-    "url('assets/images/readability-off.png')");
+    $(".readability-button").css(
+      "background-image", "url('assets/images/readability-off.png')"
+    );
   } else {
     $("body").addClass("easy-read");
     $(".readability-button").css(
-      "background-image",
-      "url('assets/images/readability-on.png')");
+      "background-image", "url('assets/images/readability-on.png')"
+    );
   }
+}
+
+function toggleAudio() {
+  const muteButton = $('.mute-button')
+  if (game.muted) {
+    muteButton.css(
+      'background-image', "url('assets/images/unmute.png')"
+    );
+  } else {
+    muteButton.css(
+      'background-image', "url('assets/images/mute.png')"
+    )
+  }
+  game.muted = !game.muted
 }
