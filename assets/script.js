@@ -25,6 +25,7 @@ var game = {
     "Dio",
     "Enyaba",
   ],
+  muted: true
 };
 
 function handleCardClick(event) {
@@ -77,8 +78,7 @@ function failMatch() {
 function checkWin() {
   if (game.matches === game.maxMatches) {
     setTimeout(function() {
-      var winSound = new Audio();
-      playSound(winSound, "assets/audio/yare-yare.wav");
+      if (!game.muted) { playSound("assets/audio/yare-yare.wav"); }
       $(".gameover-modal").removeClass("hidden");
     }, 1000);
     game.gamesPlayed++;
@@ -100,8 +100,7 @@ function startGame() {
   $(".start-modal").addClass("hidden");
   updateStats();
   randomizeCards();
-  var wager = new Audio();
-  playSound(wager, "assets/audio/wager.wav");
+  if (!game.muted) { playSound("assets/audio/wager.wav"); }
 }
 
 function resetGame() {
@@ -139,8 +138,7 @@ function assembleDeck(deck) {
     newCard.append($("<div>").addClass("back"));
     $(".game-area").append(newCard);
   }
-  var dealSound = new Audio();
-  playSound(dealSound, "assets/audio/deal-cards.wav");
+  if (!game.muted) { playSound("assets/audio/deal-cards.wav"); }
   dealCards(deck);
 }
 
@@ -182,8 +180,7 @@ function whichCard(element) {
 
 function flipCard() {
   for (var card in arguments) {
-    var flipSound = new Audio();
-    playSound(flipSound, "assets/audio/card-flip.wav");
+    if (!game.muted) { playSound("assets/audio/card-flip.wav"); }
     arguments[card].toggleClass("flipped");
     arguments[card].toggleClass("active-card");
     updateCSS(arguments[card]);
@@ -196,7 +193,8 @@ function hideCard() {
   }
 }
 
-function playSound(sound, source) {
+function playSound(source) {
+  let sound = new Audio();
   sound.src = source;
   sound.addEventListener("canplaythrough", function() {
     sound.play();

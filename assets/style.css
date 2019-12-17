@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Fedora";
-  src: url(../fonts/sf-fedora.ttf);
+  src: url(fonts/sf-fedora.ttf);
 }
 
 body {
   height: 100vh;
   margin: auto;
-  background-image: url(../images/JJBA-background.png);
+  background-image: url(images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
   font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
@@ -25,7 +25,7 @@ body * {
   height: 20px;
   top: 1vmin;
   left: 1vmin;
-  background-image: url(../images/readability-off.png);
+  background-image: url(images/readability-off.png);
   background-size: contain;
   filter: opacity(50%);
 }
@@ -68,11 +68,11 @@ hr {
 }
 
 .start-modal {
-  background-image: url(../images/darby.png);
+  background-image: url(images/darby.png);
 }
 
 .gameover-modal {
- background-image: url(../images/yare-yare.png);
+ background-image: url(images/yare-yare.png);
 }
 
 .rules, .congratulations {
@@ -186,7 +186,7 @@ h2 {
 }
 
 .back {
-  background-image: url(../images/JJBA-logo.jpg);
+  background-image: url(images/JJBA-logo.jpg);
 }
 
 .hidden {
@@ -194,42 +194,42 @@ h2 {
 }
 
 .Joseph {
-  background-image: url(../images/joseph.png);
+  background-image: url(images/joseph.png);
 }
 
 .Jotaro {
-  background-image: url(../images/jotaro.png);
+  background-image: url(images/jotaro.png);
 }
 
 .Kakyoin {
-  background-image: url(../images/kakyoin.jpg);
+  background-image: url(images/kakyoin.jpg);
 }
 
 .Avdol {
-  background-image: url(../images/avdol.png);
+  background-image: url(images/avdol.png);
   background-position: 50% 25%;
 }
 
 .Polnareff {
-  background-image: url(../images/polnareff.png);
+  background-image: url(images/polnareff.png);
   background-position: 75% 30%;
 }
 
 .Iggy {
-  background-image: url(../images/iggy.jpg);
+  background-image: url(images/iggy.jpg);
   background-position: 15% 40%;
 }
 
 .Holly {
-  background-image: url(../images/holly.png);
+  background-image: url(images/holly.png);
   background-position: 60% 30%;
 }
 
 .Dio {
-  background-image: url(../images/dio.jpg);
+  background-image: url(images/dio.jpg);
 }
 
 .Enyaba {
-  background-image: url(../images/enyaba.png);
+  background-image: url(images/enyaba.png);
   background-position: 60% 30%;
 }
