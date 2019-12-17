@@ -9,9 +9,14 @@ body {
   background-image: url(images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
+  background-repeat: no-repeat;
   font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
   color: #d3008c;
   text-shadow: -0.3vmin 0.3vmin black;
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 body * {
@@ -171,7 +176,7 @@ hr {
   height: 30%;
   top: 0%;
   left: 0%;
-  transition: all 0.5s;
+  transition: all 0.25s;
   transform-style: preserve-3d;
   background-color: white;
   border: 0.4vmin ridge white;
@@ -180,8 +185,8 @@ hr {
 
 .active-card:hover {
   cursor: pointer;
-  width: 13.5%;
-  height: 27%;
+  width: 14.5%;
+  height: 29%;
 }
 
 .front, .back {
