@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Fedora";
-  src: url(../fonts/sf-fedora.ttf);
+  src: url(fonts/sf-fedora.ttf);
 }
 
 body {
   height: 100vh;
   margin: auto;
-  background-image: url(../images/JJBA-background.png);
+  background-image: url(images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
   font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
@@ -18,37 +18,14 @@ body * {
   box-sizing: border-box;
 }
 
-.readability-button {
-  display: inline-block;
-  position: absolute;
-  width: 120px;
-  height: 20px;
-  top: 1vmin;
-  left: 1vmin;
-  background-image: url(../images/readability-off.png);
-  background-size: contain;
-  filter: opacity(50%);
-}
-
-.readability-button:hover {
-  cursor: pointer;
-}
-
-.easy-read {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: -0.1vmin 0.1vmin black;
+h1, h2 {
+  margin: 0;
 }
 
 hr {
   height: 0.1vmin;
   width: 95%;
     border: 1px solid #b177fd;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .start-modal, .gameover-modal {
@@ -68,11 +45,54 @@ hr {
 }
 
 .start-modal {
-  background-image: url(../images/darby.png);
+  background-image: url(images/darby.png);
 }
 
 .gameover-modal {
- background-image: url(../images/yare-yare.png);
+ background-image: url(images/yare-yare.png);
+}
+
+.controls {
+  display: inline-block;
+  position: absolute;
+  top: 1vmin;
+  left: 1vmin;
+  filter: opacity(50%);
+}
+
+.readability-button {
+  display: inline-block;
+  width: 120px;
+  height: 20px;
+  background-image: url(images/readability-off.png);
+  background-size: contain;
+}
+
+.readability-button:hover {
+  cursor: pointer;
+}
+
+.mute-button {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url(images/mute.png);
+  background-size: contain;
+}
+
+.mute-button:hover {
+  cursor: pointer;
+}
+
+.easy-read {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: -0.1vmin 0.1vmin black;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .rules, .congratulations {
@@ -139,11 +159,6 @@ hr {
   font-size: 3.5vmin;
 }
 
-h1,
-h2 {
-  margin: 0;
-}
-
 .game-area {
   position: relative;
   flex-wrap: wrap;
@@ -169,8 +184,7 @@ h2 {
   height: 27%;
 }
 
-.front,
-.back {
+.front, .back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -185,51 +199,51 @@ h2 {
   transform: rotateY(180deg);
 }
 
-.back {
-  background-image: url(../images/JJBA-logo.jpg);
-}
-
 .hidden {
   visibility: hidden;
 }
 
+.back {
+  background-image: url(images/JJBA-logo.jpg);
+}
+
 .Joseph {
-  background-image: url(../images/joseph.png);
+  background-image: url(images/joseph.png);
 }
 
 .Jotaro {
-  background-image: url(../images/jotaro.png);
+  background-image: url(images/jotaro.png);
 }
 
 .Kakyoin {
-  background-image: url(../images/kakyoin.jpg);
+  background-image: url(images/kakyoin.jpg);
 }
 
 .Avdol {
-  background-image: url(../images/avdol.png);
+  background-image: url(images/avdol.png);
   background-position: 50% 25%;
 }
 
 .Polnareff {
-  background-image: url(../images/polnareff.png);
+  background-image: url(images/polnareff.png);
   background-position: 75% 30%;
 }
 
 .Iggy {
-  background-image: url(../images/iggy.jpg);
+  background-image: url(images/iggy.jpg);
   background-position: 15% 40%;
 }
 
 .Holly {
-  background-image: url(../images/holly.png);
+  background-image: url(images/holly.png);
   background-position: 60% 30%;
 }
 
 .Dio {
-  background-image: url(../images/dio.jpg);
+  background-image: url(images/dio.jpg);
 }
 
 .Enyaba {
-  background-image: url(../images/enyaba.png);
+  background-image: url(images/enyaba.png);
   background-position: 60% 30%;
 }
