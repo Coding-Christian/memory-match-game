@@ -4,7 +4,7 @@
 }
 
 body {
-  height: 100%;
+  height: 100vh;
   margin: auto;
   background-image: url(images/JJBA-background.png);
   background-size: cover;
