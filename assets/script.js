@@ -1,6 +1,7 @@
 $(document).ready(initializeApp);
 
 function initializeApp() {
+  $('body').resize( () => $('body').css('height', window.innerHeight) )
   $(".game-area").on("click", ".card", handleCardClick);
   $(".start-button").click(startGame);
   $(".reset-button").click(resetGame);

@@ -167,6 +167,12 @@ hr {
   text-align: center;
 }
 
+.stat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .stat-head {
   font-size: 3.5vmin;
 }
