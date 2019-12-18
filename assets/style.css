@@ -9,9 +9,14 @@ body {
   background-image: url(images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
+  background-repeat: no-repeat;
   font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
   color: #d3008c;
   text-shadow: -0.3vmin 0.3vmin black;
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 body * {
@@ -46,10 +51,16 @@ hr {
 
 .start-modal {
   background-image: url(images/darby.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
 }
 
 .gameover-modal {
- background-image: url(images/yare-yare.png);
+  background-image: url(images/yare-yare.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
 }
 
 .controls {
@@ -146,6 +157,7 @@ hr {
   margin: 1%;
   padding: 2%;
   background-image: linear-gradient(rgba(230, 230, 230, 0.90), rgba(180, 180, 180, 0.90));
+  height: 90%;
 }
 
 .stat {
@@ -171,7 +183,7 @@ hr {
   height: 30%;
   top: 0%;
   left: 0%;
-  transition: all 0.5s;
+  transition: all 0.25s;
   transform-style: preserve-3d;
   background-color: white;
   border: 0.4vmin ridge white;
@@ -180,8 +192,8 @@ hr {
 
 .active-card:hover {
   cursor: pointer;
-  width: 13.5%;
-  height: 27%;
+  width: 14.5%;
+  height: 29%;
 }
 
 .front, .back {
@@ -247,3 +259,53 @@ hr {
   background-image: url(images/enyaba.png);
   background-position: 60% 30%;
 }
+
+@media only screen and (max-width: 770px) {
+
+  hr {
+    display: none;
+  }
+
+  .title {
+    height: 18%;
+    font-size: 4vmin;
+  }
+
+  .game-content {
+    height: 82%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-area {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 20%;
+    width: 100%;
+  }
+
+  .stat-head {
+    width: 100%;
+  }
+
+  .stat-container {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+  }
+
+  .stat {
+    font-size: 3.5vmin;
+  }
+
+  .game-area {
+    height: 80%;
+    width: 100%;
+  }
+
+  .rules, .congratulations {
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+ }
