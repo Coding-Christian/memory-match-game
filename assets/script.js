@@ -82,6 +82,7 @@ function checkWin() {
     setTimeout(function() {
       if (!game.muted) { playSound("assets/audio/yare-yare.wav"); }
       $(".gameover-modal").removeClass("hidden");
+      $('.card').removeClass("hidden");
     }, 1000);
     game.gamesPlayed++;
   }
@@ -150,7 +151,7 @@ function dealCards(deck) {
     var col = (card - 6 * row) % 6.5;
     var X = (0.152 * col - 0.102) * parseFloat($(".game-area").css("width"));
     var Y = (0.33 * row + 0.025) * parseFloat($(".game-area").css("height"));
-    var nthCard = $(".game-area .card:nth-child(" + (card + 1) + ")");
+    var nthCard = $(".game-area .card:nth-child(" + card + ")");
     nthCard.css({
       transform: "translate(" + X + "px," + Y + "px)",
       "transition-delay": 0.1 * card + "s",
