@@ -6,6 +6,7 @@ A JavaScript based card matching game themed after the anime series, "JoJo's Biz
 - jQuery
 - HTML5
 - CSS3
+- AWS EC2
 
 ## Live Demo Link
 Try out the game at: https://memory.christian-haney.com
