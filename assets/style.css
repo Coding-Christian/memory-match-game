@@ -11,6 +11,7 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
   color: #d3008c;
   text-shadow: -0.3vmin 0.3vmin black;
   user-select: none;
@@ -23,7 +24,7 @@ body * {
   box-sizing: border-box;
 }
 
-h1, h2 {
+h1, h2, h3 {
   margin: 0;
 }
 
@@ -44,7 +45,6 @@ hr {
   background-repeat: no-repeat;
   padding: 1%;
   text-align: center;
-  font-size: 3vmin;
   border: 0.3vmin outset #b177fd;
   border-radius: 2vmin;
 }
@@ -118,7 +118,6 @@ hr {
   width: 50%;
   height: 12%;
   background-image: linear-gradient(rgba(220, 220, 220), rgba(150, 150, 150));
-  font-size: 5vmin;
   border: 0.3vmin outset #b177fd;
   border-radius: 1vmin;
 }
@@ -135,7 +134,6 @@ hr {
   height: 10%;
   width: 100%;
   background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-  font-size: 2.8vmin;
   text-align: center;
 }
 
@@ -158,12 +156,6 @@ hr {
   padding: 2%;
   background-image: linear-gradient(rgba(230, 230, 230, 0.90), rgba(180, 180, 180, 0.90));
   height: 90%;
-}
-
-.stat {
-  width: 90%;
-  height: 10%;
-  font-size: 3vmin;
   text-align: center;
 }
 
@@ -171,10 +163,6 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-
-.stat-head {
-  font-size: 3.5vmin;
 }
 
 .game-area {
@@ -268,19 +256,30 @@ hr {
 
 @media only screen and (max-width: 770px) {
 
+  body {
+    font-size: smaller;
+  }
+
   hr {
     display: none;
   }
 
   .title {
     height: 18%;
-    font-size: 4vmin;
   }
 
   .game-content {
     height: 82%;
     flex-direction: column;
     align-items: center;
+  }
+
+  .gameover-modal, .start-modal {
+    height: 60%;
+  }
+
+  .gameover-modal {
+    background-position: 60% 50%;
   }
 
   .stats-area {
@@ -296,12 +295,8 @@ hr {
 
   .stat-container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     width: 33%;
-  }
-
-  .stat {
-    font-size: 3.5vmin;
   }
 
   .game-area {
