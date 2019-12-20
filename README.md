@@ -27,6 +27,9 @@ Try out the game at: https://memory.christian-haney.com
 #### Ending a Game
 ![Ending a Game](features/ending-a-game.gif)
 
+#### Mobile View
+![Mobile View](features/mobile-view.png)
+
 ## Installation
 #### System Requirements
 - None
