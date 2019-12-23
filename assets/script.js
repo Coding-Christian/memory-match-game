@@ -82,6 +82,7 @@ function checkWin() {
     setTimeout(function() {
       if (!game.muted) { playSound("assets/audio/yare-yare.wav"); }
       $(".gameover-modal").removeClass("hidden");
+      $('.game-area').off('click');
       $('.card').removeClass("hidden");
     }, 1000);
     game.gamesPlayed++;
@@ -110,6 +111,7 @@ function resetGame() {
   $(".card")
     .removeClass("flipped")
     .removeClass("hidden");
+  $(".game-area").on("click", ".card", handleCardClick);
   $(".gameover-modal").addClass("hidden");
   game.matches = 0;
   game.attempts = 0;
