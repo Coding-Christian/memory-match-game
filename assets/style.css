@@ -254,11 +254,14 @@ hr {
   background-position: 60% 30%;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 1000px) {
 
   body {
     font-size: smaller;
   }
+}
+
+@media only screen and (max-width: 600px) {
 
   hr {
     display: none;
