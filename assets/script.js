@@ -7,6 +7,9 @@ function initializeApp() {
   $(".reset-button").click(resetGame);
   $(".readability-button").click(toggleReadability);
   $('.mute-button').click(toggleAudio);
+  $(window).resize(function() {
+    dealCards(game.deck, 0);
+  });
 }
 
 var game = {
@@ -27,6 +30,7 @@ var game = {
     "Dio",
     "Enyaba",
   ],
+  deck: [],
   muted: true
 };
 
@@ -144,10 +148,11 @@ function assembleDeck(deck) {
     $(".game-area").append(newCard);
   }
   if (!game.muted) { playSound("assets/audio/deal-cards.wav"); }
-  dealCards(deck);
+  game.deck = deck;
+  dealCards(deck, 0.1);
 }
 
-function dealCards(deck) {
+function dealCards(deck, delay) {
   for (var card = 1; card <= deck.length; card++) {
     var row = Math.floor(card / 6.5);
     var col = (card - 6 * row) % 6.5;
@@ -156,9 +161,8 @@ function dealCards(deck) {
     var nthCard = $(".game-area .card:nth-child(" + card + ")");
     nthCard.css({
       transform: "translate(" + X + "px," + Y + "px)",
-      "transition-delay": 0.1 * card + "s",
+      "transition-delay":delay * card + "s",
     });
-    updateCSS(nthCard);
   }
   setTimeout(function() {
     $(".card").css("transition-delay", "");
