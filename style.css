@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Fedora";
-  src: url(fonts/sf-fedora.woff2);
+  src: url(assets/fonts/sf-fedora.woff2);
 }
 
 body {
   height: 100vh;
   margin: auto;
-  background-image: url(images/JJBA-background.png);
+  background-image: url(assets/images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -50,14 +50,14 @@ hr {
 }
 
 .start-modal {
-  background-image: url(images/darby.png);
+  background-image: url(assets/images/darby.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 75% 50%;
 }
 
 .gameover-modal {
-  background-image: url(images/yare-yare.png);
+  background-image: url(assets/images/yare-yare.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 100% 50%;
@@ -75,7 +75,7 @@ hr {
   display: inline-block;
   width: 120px;
   height: 20px;
-  background-image: url(images/readability-off.png);
+  background-image: url(assets/images/readability-off.png);
   background-size: contain;
 }
 
@@ -87,7 +87,7 @@ hr {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url(images/mute.png);
+  background-image: url(assets/images/mute.png);
   background-size: contain;
 }
 
@@ -210,47 +210,47 @@ hr {
 }
 
 .back {
-  background-image: url(images/JJBA-logo.jpg);
+  background-image: url(assets/images/JJBA-logo.jpg);
 }
 
 .Joseph {
-  background-image: url(images/joseph.png);
+  background-image: url(assets/images/joseph.png);
 }
 
 .Jotaro {
-  background-image: url(images/jotaro.png);
+  background-image: url(assets/images/jotaro.png);
 }
 
 .Kakyoin {
-  background-image: url(images/kakyoin.jpg);
+  background-image: url(assets/images/kakyoin.jpg);
 }
 
 .Avdol {
-  background-image: url(images/avdol.png);
+  background-image: url(assets/images/avdol.png);
   background-position: 50% 25%;
 }
 
 .Polnareff {
-  background-image: url(images/polnareff.png);
+  background-image: url(assets/images/polnareff.png);
   background-position: 75% 30%;
 }
 
 .Iggy {
-  background-image: url(images/iggy.jpg);
+  background-image: url(assets/images/iggy.jpg);
   background-position: 15% 40%;
 }
 
 .Holly {
-  background-image: url(images/holly.png);
+  background-image: url(assets/images/holly.png);
   background-position: 60% 30%;
 }
 
 .Dio {
-  background-image: url(images/dio.jpg);
+  background-image: url(assets/images/dio.jpg);
 }
 
 .Enyaba {
-  background-image: url(images/enyaba.png);
+  background-image: url(assets/images/enyaba.png);
   background-position: 60% 30%;
 }
 
