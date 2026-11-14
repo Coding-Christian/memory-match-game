@@ -8,7 +8,7 @@ function initializeApp() {
   $(".readability-button").click(toggleReadability);
   $('.mute-button').click(toggleAudio);
   $(window).resize(function() {
-    dealCards(game.deck, 0);
+    dealCards(game.deck, 0, true);
   });
 }
 
@@ -85,7 +85,7 @@ function checkWin() {
   if (game.matches === game.maxMatches) {
     setTimeout(function() {
       if (!game.muted) { playSound("assets/audio/yare-yare.wav"); }
-      $(".gameover-modal").removeClass("hidden");
+      $("#gameover-modal").removeClass("hidden");
       $('.game-area').off('click');
       $('.card').removeClass("hidden");
     }, 1000);
@@ -105,7 +105,7 @@ function updateStats() {
 }
 
 function startGame() {
-  $(".start-modal").addClass("hidden");
+  $("#start-modal").addClass("hidden");
   updateStats();
   randomizeCards();
   if (!game.muted) { playSound("assets/audio/wager.wav"); }
@@ -116,7 +116,7 @@ function resetGame() {
     .removeClass("flipped")
     .removeClass("hidden");
   $(".game-area").on("click", ".card", handleCardClick);
-  $(".gameover-modal").addClass("hidden");
+  $("#gameover-modal").addClass("hidden");
   game.matches = 0;
   game.attempts = 0;
   updateStats();
@@ -153,34 +153,36 @@ function assembleDeck(deck) {
 }
 
 function dealCards(deck, delay) {
+  var columns = window.innerWidth > window.innerHeight ? 6 : 3;
+  var rows = deck.length / columns;
+  var areaWidth = parseFloat($(".game-area").css("width"));
+  var areaHeight = parseFloat($(".game-area").css("height"));
+  var slotWidth = areaWidth / columns;
+  var slotHeight = areaHeight / rows;
+  var cardWidth = Math.min(slotWidth, slotHeight * 3 / 5);
   for (var card = 1; card <= deck.length; card++) {
-    var row = Math.floor(card / 6.5);
-    var col = (card - 6 * row) % 6.5;
-    var X = (0.152 * col - 0.102) * parseFloat($(".game-area").css("width"));
-    var Y = (0.33 * row + 0.025) * parseFloat($(".game-area").css("height"));
+    var index = card - 1;
+    var row = Math.floor(index / columns);
+    var col = index % columns;
+    var X = col * slotWidth + (slotWidth - cardWidth) / 2;
+    var cardHeight = cardWidth * 5 / 3;
+    var Y = columns === 6
+      ? row * (areaHeight - cardHeight) / (rows - 1)
+      : row * slotHeight + (slotHeight - cardHeight) / 2;
     var nthCard = $(".game-area .card:nth-child(" + card + ")");
-    nthCard.css({
-      transform: "translate(" + X + "px," + Y + "px)",
-      "transition-delay":delay * card + "s",
-    });
+    nthCard.data({ x: X, y: Y }).css("transition-delay", delay * card + "s");
+    updateCSS(nthCard);
   }
   setTimeout(function() {
     $(".card").css("transition-delay", "");
   }, 100 * (deck.length + 1));
+  $(".card").css("width", cardWidth + "px");
 }
 
 function updateCSS(card) {
-  var cardTransform = card.prop("style")["cssText"].split(" ");
-  if (card.hasClass("flipped")) {
-    card.css({
-      transform:
-        cardTransform[1] + cardTransform[2].slice(0, -1) + " rotateY(180deg)",
-    });
-  } else {
-    card.css({
-      transform: cardTransform[1] + cardTransform[2].slice(0, -1),
-    });
-  }
+  var position = "translate(" + card.data("x") + "px," + card.data("y") + "px)";
+  var rotation = card.hasClass("flipped") ? " rotateY(180deg)" : "";
+  card.css("transform", position + rotation);
 }
 
 function whichCard(element) {

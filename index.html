@@ -16,31 +16,29 @@
     </header>
     <div class="game-content">
       <aside class="stats-area flex-center">
-        <h2 class="stat-head flex-center">Session Statstics</h2>
+        <h2 class="flex-center">Statstics</h2>
         <hr>
         <div class="stat-container">
-          <h3 class="stat flex-center" title="Total number of games palyed this session">Games Played:</h3>
-          <div id="gamesPlayed" class="stat flex-center"></div>
+          <h3 class="stat-head flex-center" title="Total number of games palyed this session">Games:</h3>
+          <div id="gamesPlayed" class="stat flex-center">0</div>
         </div>
-        <hr>
         <div class="stat-container">
-          <h3 class="stat flex-center" title="Total number of matches attempted this game">Match Attempts:</h3>
-          <div id="matchAttempts" class="stat flex-center"></div>
+          <h3 class="stat-head flex-center" title="Total number of matches attempted this game">Guesses:</h3>
+          <div id="matchAttempts" class="stat flex-center">0</div>
         </div>
-        <hr>
         <div class="stat-container">
-          <h3 class="stat flex-center" title="Percentage of total match attempts that were successful">Accuracy:</h3>
-          <div id="accuracy" class="stat flex-center"></div>
+          <h3 class="stat-head flex-center" title="Percentage of total match attempts that were successful">Accuracy:</h3>
+          <div id="accuracy" class="stat flex-center">0.00%</div>
         </div>
         </aside>
       <main class="game-area flex-center"></main>
-      <div class="gameover-modal hidden flex-center">
-        <h1 class="congratulations">
+      <div id="gameover-modal" class="hidden flex-center">
+        <h2 class="congratulations">
           Yare yare daze. The Joestar bloodline lives on thanks to your efforts!
-        </h1>
+        </h2>
         <div class="reset-button flex-center" title="Resets cards, matches and accuracy">Play Again</div>
       </div>
-      <div class="start-modal flex-center">
+      <div id="start-modal" class="flex-center">
         <h2 class="rules">Help the Stardust Crusaders join forces to defeat DIO.
           Match two of the same character to clear those cards.
           Match all cards to win. Who's soul will you wager next, JoJo?
