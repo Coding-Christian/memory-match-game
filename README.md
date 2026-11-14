@@ -1,15 +1,8 @@
 # JoJo's Bizarre Memory Match
 A JavaScript based card matching game themed after the anime series, "JoJo's Bizarre Adventure".
 
-## Technologies Utilized
-- JavaScript
-- jQuery
-- HTML5
-- CSS3
-- AWS EC2
-
 ## Live Demo Link
-Try out the game at: https://memory.christian-haney.com
+Try out the game at: https://coding-christian.github.io/memory-match-game/
 
 ## Features
 - Players can flip over cards by clicking them with the mouse
@@ -20,21 +13,32 @@ Try out the game at: https://memory.christian-haney.com
 - Players can view the number of match attempts made during the current game
 - Players can view their accuracy as a percentage of attempted matches that were correct
 - Players can change the font of the game between a custom font and the default sans-serif font of their browser
+- Players can toggle game audio on and off
 
 ## Previews
-#### Starting a Game
-![Starting a Game](features/starting-a-game.gif)
+### Starting a Game
+#### Landscape
+![Starting a game](assets/images/readme/start-game.gif)
 
-#### Ending a Game
-![Ending a Game](features/ending-a-game.gif)
+#### Portrait
+![Starting a game (mobile)](assets/images/readme/start-game-mobile.gif)
 
-#### Mobile View
-![Mobile View](features/mobile-display.png)
+### Making a Match
+#### Landscape
+![Making a match](assets/images/readme/make-match.gif)
+#### Portrait
+![Making a match (mobile)](assets/images/readme/make-match-mobile.gif)
+
+### Ending a Game
+#### Landscape
+![Ending a Game](assets/images/readme/end-game.gif)
+#### Portrait
+![Ending a game (mobile)](assets/images/readme/end-game-mobile.gif)
 
 ## Installation
-#### System Requirements
+### System Requirements
 - None
-#### Getting Started
+### Getting Started
 1. Clone this repository into the desired directory
 ```
 git clone https://github.com/Coding-Christian/memory-match-game
