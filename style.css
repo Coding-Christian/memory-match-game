@@ -66,8 +66,8 @@ header {
 .controls {
   display: inline-block;
   position: absolute;
-  top: 12px;
-  left: 12px;
+  bottom: 12px;
+  right: 12px;
   filter: opacity(50%);
 }
 
@@ -256,6 +256,10 @@ header {
 }
 
 @media only screen and (orientation: portrait) {
+  body {
+    font-size: medium;
+  }
+
   hr {
     display: none;
   }
@@ -292,6 +296,7 @@ header {
     width: 100%;
     padding: 0;
     margin-right: 0;
+    margin-bottom: 1vh;
   }
 
   .stat-head {
