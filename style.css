@@ -1,19 +1,19 @@
 @font-face {
   font-family: "Fedora";
-  src: url(fonts/sf-fedora.woff2);
+  src: url(assets/fonts/sf-fedora.woff2);
 }
 
 body {
   height: 100vh;
   margin: auto;
-  background-image: url(images/JJBA-background.png);
+  background-image: url(assets/images/JJBA-background.png);
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   font-family: "Fedora", Tahoma, Geneva, Verdana, sans-serif;
   font-size: larger;
   color: #d3008c;
-  text-shadow: -0.3vmin 0.3vmin black;
+  text-shadow: 3px 3px black;
   user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -24,50 +24,50 @@ body * {
   box-sizing: border-box;
 }
 
-h1, h2, h3 {
+h2, h3 {
   margin: 0;
 }
 
 hr {
-  height: 0.1vmin;
-  width: 95%;
-    border: 1px solid #b177fd;
+  height: 2px;
+  width: 90%;
+  margin-top: 3vh;
+  border: 1px solid #b177fd;
 }
 
-.start-modal, .gameover-modal {
+header {
+  height: 10%;
+}
+
+#start-modal, #gameover-modal {
   flex-direction: column;
   position: absolute;
   height: 80%;
   width: 70%;
   background-color: rgb(200, 200, 200);
-  background-size: contain;
-  background-position: 100% 40%;
-  background-repeat: no-repeat;
-  padding: 1%;
-  text-align: center;
-  border: 0.3vmin outset #b177fd;
-  border-radius: 2vmin;
-}
-
-.start-modal {
-  background-image: url(images/darby.png);
   background-size: cover;
   background-repeat: no-repeat;
+  border: 3px outset #b177fd;
+  border-radius: 12px;
+}
+
+#start-modal {
+  background-image: url(assets/images/darby.png);
   background-position: 75% 50%;
 }
 
-.gameover-modal {
-  background-image: url(images/yare-yare.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+#gameover-modal {
+  justify-content: space-between;
+  padding: 24px 0px;
+  background-image: url(assets/images/yare-yare.png);
   background-position: 100% 50%;
 }
 
 .controls {
   display: inline-block;
   position: absolute;
-  top: 1vmin;
-  left: 1vmin;
+  top: 12px;
+  left: 12px;
   filter: opacity(50%);
 }
 
@@ -75,7 +75,7 @@ hr {
   display: inline-block;
   width: 120px;
   height: 20px;
-  background-image: url(images/readability-off.png);
+  background-image: url(assets/images/readability-off.png);
   background-size: contain;
 }
 
@@ -87,7 +87,7 @@ hr {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url(images/mute.png);
+  background-image: url(assets/images/mute.png);
   background-size: contain;
 }
 
@@ -97,7 +97,9 @@ hr {
 
 .easy-read {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: -0.1vmin 0.1vmin black;
+  color: #a0006b;
+  font-weight: bold;
+  text-shadow: none;
 }
 
 .flex-center {
@@ -116,10 +118,10 @@ hr {
 
 .start-button, .reset-button {
   width: 50%;
-  height: 12%;
+  height: 10%;
   background-image: linear-gradient(rgba(220, 220, 220), rgba(150, 150, 150));
-  border: 0.3vmin outset #b177fd;
-  border-radius: 1vmin;
+  border: 3px outset #b177fd;
+  border-radius: 12px;
 }
 
 .start-button:hover, .reset-button:hover {
@@ -131,7 +133,6 @@ hr {
 }
 
 .title {
-  height: 10%;
   width: 100%;
   background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   text-align: center;
@@ -140,54 +141,54 @@ hr {
 .game-content {
   display: flex;
   justify-content: space-around;
-  height: 90%;
-}
-
-.game-content > * {
-  align-items: center;
-  padding: 2vmin;
+  height: 80%;
+  padding: 0 1vw;
 }
 
 .stats-area {
   flex-direction: column;
+  justify-content: start;
   width: 30%;
-  border: 0.3vmin outset #b177fd;
-  margin: 1%;
-  padding: 2%;
-  background-image: linear-gradient(rgba(230, 230, 230, 0.90), rgba(180, 180, 180, 0.90));
-  height: 90%;
   text-align: center;
+  padding: 3vh 0;
+  margin-right: 1vw;
+  border: 3px outset #b177fd;
+  background-image: linear-gradient(rgba(230, 230, 230, 0.90), rgba(180, 180, 180, 0.90));
+}
+
+.stat-head {
+  margin-right: 12px;
 }
 
 .stat-container {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  margin-top: 3vh;
 }
 
 .game-area {
   position: relative;
   flex-wrap: wrap;
+  height: 100%;
   width: 70%;
 }
 
 .card {
   position: absolute;
   width: 15%;
-  height: 30%;
+  aspect-ratio: 3 / 5;
+  height: auto;
   top: 0%;
   left: 0%;
   transition: all 0.25s;
   transform-style: preserve-3d;
   background-color: white;
-  border: 0.4vmin ridge white;
-  border-radius: 1vmin;
+  border: 3px ridge white;
+  border-radius: 12px;
 }
 
 .active-card:hover {
   cursor: pointer;
-  width: 14.5%;
-  height: 29%;
 }
 
 .front, .back {
@@ -198,7 +199,7 @@ hr {
   background-size: cover;
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  border-radius: 1vmin;
+  border-radius: 12px;
 }
 
 .front {
@@ -210,100 +211,102 @@ hr {
 }
 
 .back {
-  background-image: url(images/JJBA-logo.jpg);
+  background-image: url(assets/images/JJBA-logo.jpg);
 }
 
 .Joseph {
-  background-image: url(images/joseph.png);
+  background-image: url(assets/images/joseph.png);
 }
 
 .Jotaro {
-  background-image: url(images/jotaro.png);
+  background-image: url(assets/images/jotaro.png);
 }
 
 .Kakyoin {
-  background-image: url(images/kakyoin.jpg);
+  background-image: url(assets/images/kakyoin.jpg);
 }
 
 .Avdol {
-  background-image: url(images/avdol.png);
+  background-image: url(assets/images/avdol.png);
   background-position: 50% 25%;
 }
 
 .Polnareff {
-  background-image: url(images/polnareff.png);
+  background-image: url(assets/images/polnareff.png);
   background-position: 75% 30%;
 }
 
 .Iggy {
-  background-image: url(images/iggy.jpg);
+  background-image: url(assets/images/iggy.jpg);
   background-position: 15% 40%;
 }
 
 .Holly {
-  background-image: url(images/holly.png);
+  background-image: url(assets/images/holly.png);
   background-position: 60% 30%;
 }
 
 .Dio {
-  background-image: url(images/dio.jpg);
+  background-image: url(assets/images/dio.jpg);
 }
 
 .Enyaba {
-  background-image: url(images/enyaba.png);
+  background-image: url(assets/images/enyaba.png);
   background-position: 60% 30%;
 }
 
-@media only screen and (max-width: 1000px) {
-
-  body {
-    font-size: smaller;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-
+@media only screen and (orientation: portrait) {
   hr {
     display: none;
   }
 
-  .title {
-    height: 18%;
-  }
-
   .game-content {
-    height: 82%;
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
 
-  .gameover-modal, .start-modal {
-    height: 60%;
+  #start-modal, #gameover-modal {
+    height: 75%;
+    padding: 5%;
   }
 
-  .gameover-modal {
+  .start-button, .reset-button {
+    margin-top: 20%;
+    margin-bottom: 10%;
+  }
+
+  #start-modal {
+    justify-content: end;
+  }
+
+  #gameover-modal {
     background-position: 60% 50%;
   }
 
   .stats-area {
     flex-direction: row;
     flex-wrap: wrap;
-    height: 20%;
+    justify-content: space-around;
+    height: 15%;
     width: 100%;
+    padding: 0;
+    margin-right: 0;
   }
 
   .stat-head {
-    width: 100%;
+    margin-right: 0;
   }
-
   .stat-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 33%;
+    margin-top: 0;
+
   }
 
   .game-area {
-    height: 80%;
+    height: 85%;
     width: 100%;
   }
 
